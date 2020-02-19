@@ -1,0 +1,17 @@
+<div class="navbar bg-light d-flex">
+  <h1>Restaurants</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <%= simple_form_for(@restaurant) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :address %>
+        <%= f.input :category %>
+        <%= f.input :phone_number %>
+        <%= f.submit "Add Restaurant", class: "btn btn-primary" %>
+        <%= link_to "Back to list", restaurants_path, class: "btn btn-warning" %>
+      <% end %>
+    </div>
+  </div>

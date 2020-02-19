@@ -1,0 +1,18 @@
+<div class="navbar bg-light d-flex">
+  <h1>Restaurants</h1>
+  <%= link_to "Add a new restaurant", new_restaurant_path, class: 'btn btn-primary' %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <% @restaurants.each do |restaurant| %>
+        <%= link_to restaurant_path(restaurant) do %>
+          <h1 class="text-primary"><%= restaurant.name %></h1>
+        <% end %>
+        <p><%= restaurant.category %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
+

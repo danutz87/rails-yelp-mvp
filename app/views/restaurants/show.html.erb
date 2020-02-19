@@ -1,0 +1,30 @@
+<div class="navbar bg-light d-flex">
+  <h1>Restaurants</h1>
+  <%= link_to "Add a new review", new_restaurant_review_path(@restaurant), class: 'btn btn-primary' %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h1 class="text-success"><%= @restaurant.name %></h1>
+       <h3><%= @restaurant.address %></h3>
+        <p><%= @restaurant.phone_number %></p>
+        <p class="text-danger"><%= @restaurant.category %></p>
+        <p>
+        <strong>Reviews:</strong>
+        <% @restaurant.reviews.each do |review| %>
+
+          <li><i class ="fa fa-comment"></i><%= link_to review.content, new_restaurant_review_path(@restaurant) %>
+            <% review.rating.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+            <% (5 - review.rating).times do %>
+              <i class="far fa-star"></i>
+            <% end %>
+        <% end %>
+        </li>
+      </p>
+      <%= link_to "Back to list", restaurants_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
